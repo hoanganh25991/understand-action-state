@@ -7,16 +7,35 @@ const demoItems = [
 	{key: 4, name: 'BLENDED MOCHA',  price: 40, quanity: 1, discount: 0},
 ];
 
+const demoSaleItems = [
+	{key: 1, discount: 35},
+	{key: 4, discount: 35},
+];
+
 const receiptPage = combineReducers({
 	items: (items = demoItems, action) => {
 		switch(action.type) {
 			case 'APPLY_DISCOUNT': {
 				let {discount, getState} = action;
 
-				let {selectedItem} = getState();
+				let {selectedItem, saleItems} = getState();
 
 				return items.map(item => {
 					if(item.key === selectedItem.key){
+						// Staff want to clear discount
+						// Don't have to check other
+						if(discount === 0){
+							return Object.assign({}, item, {discount});
+						}
+
+						let itemInSale = saleItems.filter(saleItem => item.key === saleItem.key)[0];
+
+						// If item in sale, apply it
+						if(itemInSale){
+							discount = itemInSale.discount;
+							window.alert(`Item in sale, discount: ${discount}%`);
+						}
+
 						return Object.assign({}, item, {discount});
 					}
 
@@ -43,7 +62,9 @@ const receiptPage = combineReducers({
 			default:
 				return {};
 		}
-	}
+	},
+
+	saleItems: (saleItems = demoSaleItems) => saleItems
 })
 
 export default receiptPage
