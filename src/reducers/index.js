@@ -31,17 +31,14 @@ const receiptPage = combineReducers({
 	selectedItem: (selectedItem, action) => {
 		switch(action.type) {
 			case 'TOOGLE_SELECTED': {
+				// Current selected item from action
 				let {item} = action;
-				
+				// Decide current state
 				let isSelected = (item.key === selectedItem.key);
-				// Toggle
-				isSelected     = !isSelected;
+				// Toggle it
+				isSelected = !isSelected;
 				
-				if(isSelected){
-					return Object.assign({}, item);
-				}
-				
-				return {};
+				return isSelected ? Object.assign({}, item) : {};
 			}
 			default:
 				return {};
