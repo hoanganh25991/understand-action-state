@@ -47,7 +47,7 @@ const receiptPage = combineReducers({
 		}
 	},
 
-	selectedItem: (selectedItem, action) => {
+	selectedItem: (selectedItem = {}, action) => {
 		switch(action.type) {
 			case 'TOOGLE_SELECTED': {
 				// Current selected item from action
@@ -60,11 +60,11 @@ const receiptPage = combineReducers({
 				return isSelected ? Object.assign({}, item) : {};
 			}
 			default:
-				return {};
+				return selectedItem;
 		}
 	},
 
-	saleItems: (saleItems = demoSaleItems) => saleItems
+	saleItems: (saleItems = demoSaleItems, action) => saleItems
 })
 
 export default receiptPage
