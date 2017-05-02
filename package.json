@@ -28,5 +28,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://hoanganh25991.github.io/react-reservation"
+  "homepage": "https://hoanganh25991.github.io/understand-action-state"
 }
