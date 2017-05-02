@@ -1,0 +1,15 @@
+.selected {
+    background-color: #e0e0e0;
+}
+
+.anim {
+    transition: 10s all ease-in-out;
+}
+
+.anim-show {
+    transform: translate(0px, 0px) scale(1,1);
+}
+
+.anim-hide {
+    transform: translate(+200px, 0px) scale(0,0);
+}
