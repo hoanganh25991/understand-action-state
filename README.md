@@ -6,6 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     yarn start
     # Or
     npm start
+[Demo](https://hoanganh25991.github.io/understand-action-state/)
+
+![demo](https://hoanganh25991.github.io/understand-action-state/static/img/demo-2017-05-02.png)
 
 ## Action & State
 
